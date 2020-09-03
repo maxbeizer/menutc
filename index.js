@@ -1,8 +1,5 @@
-const { app, Tray } = require('electron');
-const path = require('path');
+const { app, Tray, nativeImage } = require('electron');
 const { menubar } = require('menubar');
-const assetsDirectory = path.join(__dirname, 'assets')
-const iconPath = path.join(assetsDirectory, 'utc.png');
 let mb = undefined
 let tray = undefined
 
@@ -26,7 +23,7 @@ const checkTime = () => {
 }
 
 const createTray = () => {
-  tray = new Tray(iconPath);
+  tray = new Tray(nativeImage.createEmpty());
   setTrayTitle({tray})
   return tray
 }
