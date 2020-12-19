@@ -8,10 +8,9 @@ const MENU_BAR_OPTIONS = {
   browserWindow: { height: 0, width: 0 }
 }
 
-// Don't show the app in the doc
-app.dock.hide()
-
 app.on('ready', () => {
+  // Don't show the app in the doc
+  app.dock.hide()
   tray = createTray()
   MenUTC = createMb({tray})
 
