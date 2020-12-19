@@ -2,6 +2,8 @@
 
 An [ElectronJS](https://www.electronjs.org/) app to show UTC in the Tray.
 
+![menutc screenshot](https://user-images.githubusercontent.com/2006658/102679407-50f2ca80-4175-11eb-8c82-b9bf6610d7b5.png)
+
 ## Dev
 
 ```
