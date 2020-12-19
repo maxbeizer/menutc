@@ -39,5 +39,7 @@ const setTrayTitle = ({tray}) => {
 }
 
 const buildTime = () => {
-  return `${new Date().getUTCHours()}:${new Date().getUTCMinutes()} UTC`
+  return `${formatNumber(new Date().getUTCHours())}:${formatNumber(new Date().getUTCMinutes())} UTC`
 }
+
+const formatNumber = number => `0${number}`.slice(-2)
