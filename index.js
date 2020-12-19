@@ -1,21 +1,30 @@
 const { app, Tray, nativeImage } = require('electron');
 const { menubar } = require('menubar');
-let mb = undefined
+let MenUTC = undefined
 let tray = undefined
+const MENU_BAR_OPTIONS = {
+  showDockIcon: false,
+  index: false,
+  browserWindow: { height: 0, width: 0 }
+}
 
 // Don't show the app in the doc
 app.dock.hide()
 
 app.on('ready', () => {
   tray = createTray()
-  mb = createMb({tray})
+  MenUTC = createMb({tray})
 
-	mb.on('ready', () => {
-		console.log('menutc is ready.');
+	MenUTC.on('ready', () => {
     setInterval(() => {
       checkTime()
     }, 1000); // every second
   });
+
+  // debug only
+  // MenUTC.on('after-create-window', () => {
+  //   mb.window.openDevTools()
+  // })
 });
 
 const checkTime = () => {
@@ -30,16 +39,22 @@ const createTray = () => {
 
 const createMb = ({tray}) => {
 	return menubar({
-		tray,
+    tray,
+    ...MENU_BAR_OPTIONS
 	});
 }
 
-const setTrayTitle = ({tray}) => {
-  tray.setTitle(buildTime())
-}
+const setTrayTitle = ({tray}) => tray.setTitle(buildTime())
 
 const buildTime = () => {
-  return `${formatNumber(new Date().getUTCHours())}:${formatNumber(new Date().getUTCMinutes())} UTC`
+  const time = [
+    new Date().getUTCHours(),
+    new Date().getUTCMinutes()
+  ]
+  .map(formatNumber)
+  .join(':')
+
+  return `${time} UTC`
 }
 
 const formatNumber = number => `0${number}`.slice(-2)
