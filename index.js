@@ -33,6 +33,7 @@ const checkTime = () => {
 const createTray = () => {
   tray = new Tray(nativeImage.createEmpty());
   setTrayTitle({ tray });
+  tray.setHighlightMode("never");
   return tray;
 };
 
