@@ -1,7 +1,7 @@
 {
   "name": "menutc",
   "version": "0.0.1",
-  "description": "",
+  "description": "A tiny tray app to show time in UTC",
   "main": "index.js",
   "scripts": {
     "dev": "npx electron index.js",
