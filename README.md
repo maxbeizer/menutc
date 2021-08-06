@@ -17,7 +17,7 @@ npm run dev
 
 ## Build
 
-Built via [Electron Forge](https://www.electronjs.org/docs/tutorial/quick-start#package-and-distribute-the-application)
+Built via [Electron Forge](https://www.electronforge.io/)
 
 ```
 npm run make
