@@ -43,4 +43,4 @@ jobs:
       - name: Build release
         uses: softprops/action-gh-release@v1
         with:
-          files: out/zip/darwin/x64/menutc-darwin-x64-${{ steps.get_version.outputs.VERSION }}.zip
+          files: out/make/menutc-${{ steps.get_version.outputs.VERSION }}.app
