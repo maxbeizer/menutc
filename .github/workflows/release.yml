@@ -7,11 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [macos-latest] #, ubuntu-latest, windows-latest]
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -39,3 +35,8 @@ jobs:
 
       - name: Build assets
         run: npm run make
+
+      - name: Build release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: out/zip/darwin/x64/menutc-darwin-x64-*.zip
