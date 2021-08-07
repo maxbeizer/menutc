@@ -33,6 +33,9 @@ jobs:
       - name: NPM install
         run: npm ci --ignore-scripts
 
+      - name: Update CXX var
+        run: export CXX=/usr/bin/clang++
+
       - name: NPM install global deps
         run: npm i -g macos-alias appdmg
 
