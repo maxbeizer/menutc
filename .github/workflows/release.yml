@@ -33,20 +33,23 @@ jobs:
       - name: NPM install
         run: npm ci --ignore-scripts
 
-      - name: Update CXX var
-        run: export CXX=/usr/bin/clang++
-
-      - name: NPM install global deps
-        run: npm i -g macos-alias appdmg
-
-      - name: Build assets
-        run: npm run make
-
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-
-      - name: Build release
-        uses: softprops/action-gh-release@v1
+      - name: Bundle app
+        uses: electron-forge/bundle-action@main
         with:
-          files: out/make/menutc-${{ steps.get_version.outputs.VERSION }}.app
+          macos-cert-importer: ci/codesign/import-testing-cert-ci.sh
+          target-arch: x64
+          target-platform: darwin
+
+      - name: Generate distributables
+        uses: electron-forge/distributable-action@main
+        with:
+          macos-cert-importer: ci/codesign/import-testing-cert-ci.sh
+          target-maker: "@electron-forge/maker-dmg"
+          target-arch: x64
+          target-platform: darwin
+
+      - name: Save distributable
+        uses: actions/upload-artifact@v1
+        with:
+          name: dmg (darwin x64)
+          path: out/make
