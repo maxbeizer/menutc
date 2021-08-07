@@ -1,6 +1,6 @@
 {
   "name": "menutc",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A tiny tray app to show time in UTC",
   "main": "index.js",
   "scripts": {
