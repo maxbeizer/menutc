@@ -33,6 +33,9 @@ jobs:
       - name: NPM install
         run: npm ci --ignore-scripts
 
+      - name: NPM install global deps
+        run: npm i -g macos-alias appdmg
+
       - name: Build assets
         run: npm run make
 
