@@ -1,0 +1,3 @@
+#!/bin/bash
+# Run electron
+npm run dev

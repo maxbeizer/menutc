@@ -11,6 +11,13 @@ Time zones are hard. I know, I know; there's always `date -u` on the CLI. When I
 ## Dev
 
 ```
+script/bootstrap
+script/dev
+```
+
+or
+
+```
 npm i
 npm run dev
 ```
