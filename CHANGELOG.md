@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Remove breaking change of `setHighlightMode` which was deprecated
 - Add script files to bootstrap and dev
 
-## [1.0.0]
+## [0.0.10]
