@@ -16,7 +16,7 @@
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.58",
     "@electron-forge/maker-dmg": "^6.0.0-beta.58",
-    "electron": "^13.6.6"
+    "electron": "^15.5.5"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
